@@ -1,6 +1,8 @@
 services:
   db:
     image: postgres:14.6
+    # TODO: 必要に応じてコンテナ名を更新する
+    container_name: rails_api_temp_db
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
@@ -9,6 +11,10 @@ services:
       POSTGRES_DB: rails_api_temp
   app:
     build: .
+    # TODO: 必要に応じてイメージ名を更新する
+    image: rails_api_temp_image
+    # TODO: 必要に応じてコンテナ名を更新する
+    container_name: rails_api_temp_app
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/myapp
