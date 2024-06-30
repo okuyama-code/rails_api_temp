@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  post 'auth/:provider/callback', to: 'api/v1/users#create'
+  post 'api/v1/auth/:provider/callback', to: 'api/v1/users#create'
 end
