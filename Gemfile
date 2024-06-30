@@ -25,8 +25,6 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 gem "bootsnap", require: false
 
-gem "image_processing", "~> 1.2"
-
 gem "rack-cors"
 
 gem 'config'
@@ -42,11 +40,65 @@ gem 'meta-tags'
 gem 'sitemap_generator'
 gem 'slack-notifier'
 
+gem 'fastimage'
+gem 'image_processing'
+gem 'redcarpet'
+gem 'shrine'
+
+gem 'active_model_serializers', '~> 0.10.0'
+gem 'counter_culture'
+
+gem 'activeadmin'
+gem 'mini_magick'
+
+gem 'http'
+
+gem 'charlock_holmes'
+
+gem 'ransack'
+
+gem 'good_job'
+
+
 group :development, :test do
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  # for sample data
+  gem 'faker'
+  gem 'forgery_ja'
+  gem 'gimei'
+
+  # Code Analyze
+  gem 'brakeman', require: false
+  gem 'bullet'
+  gem 'rails_best_practices', require: false
+  gem 'rubocop'
+
+  # Debugger
+  gem 'better_errors'
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'pry-rails'
+  gem 'rspec_junit_formatter'
+
+  # tests
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
+  gem 'simplecov'
+
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'rails-erd'
+
+  # for openapi
+  gem 'rswag'
 end
 
 group :development do
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
+  gem 'web-console'
+
+  gem 'activerecord-import'
+  gem 'rack-mini-profiler'
+
   # gem "spring"
 end
