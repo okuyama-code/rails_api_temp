@@ -1,0 +1,20 @@
+# TODO: 必要に応じてデータベース名を更新する
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: db
+  username: postgres
+  password: password
+  pool: 5
+
+development:
+  <<: *default
+  database: rails_api_temp_development
+
+test:
+  <<: *default
+  database: rails_api_temp_test
+
+production:
+  <<: *default
+  database: rails_api_temp_production

@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:14.6
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: password
+     # TODO: 必要に応じてデータベース名を更新する
+      POSTGRES_DB: rails_api_temp
+  app:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+     # TODO: 必要に応じてデータベース名を更新する rails_api_temp
+      DATABASE_URL: postgres://postgres:password@db/rails_api_temp
